@@ -1,2 +1,0 @@
-# ReduxFriends
-Created with CodeSandbox
