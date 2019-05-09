@@ -1,10 +1,49 @@
 import SearchComponent from "../components/SearchComponent";
+import { reduxForm, formValueSelector } from "redux-form";
 import { connect } from "react-redux";
+import { compose } from "redux";
 
-function mapStateToProps(state) {
+// const mapStateToProps = state => {
+//   return {
+//     form: state.form.searchBar
+//   };
+// };
+
+// const SearchContainer = compose(
+//   connect(mapStateToProps),
+//   reduxForm({
+//     // a unique name for the form
+//     form: "searchBar",
+//     initialValues: {
+//       gender: "all",
+//       name: "",
+//       ageFrom: 18,
+//       ageTo: 40,
+//       company: ""
+//     }
+//   })
+// )(SearchComponent);
+let SearchContainer = reduxForm({
+  form: "searchBar",
+  initialValues: {
+    gender: "all",
+    name: "",
+    ageFrom: "18",
+    ageTo: "40",
+    company: ""
+  }
+})(SearchComponent);
+
+const selector = formValueSelector("searchBar");
+
+SearchContainer = connect(state => {
+  // can select values individually
+  const ageFrom = selector(state, "ageFrom");
+  const ageTo = selector(state, "ageTo");
   return {
-    parameters: state.searchReducer
+    ageFrom,
+    ageTo
   };
-}
+})(SearchContainer);
 
-export default connect(mapStateToProps)(SearchComponent);
+export default SearchContainer;

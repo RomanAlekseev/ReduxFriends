@@ -1,26 +1,31 @@
 import * as React from "react";
+import { Field } from "redux-form";
+import "./searchComponent.css";
 
-const SearchComponent = () => {
+const SearchComponent = props => {
+  const { ageFrom, ageTo } = props;
   return (
     <div className="container">
       <form className="mb-2">
         <div className="form-group">
-          <input
+          <Field
             className="mt-5 col-12"
-            id="filterInput"
-            name="filterInput"
+            name="name"
+            component="input"
             type="text"
             placeholder="Search"
           />
         </div>
         <div className="form-row small d-flex justify-content-between text-left text-lg-center">
-          <div className="form-group text-left px-1 col-4">
+          <div className="form-group text-left px-1 col-3">
             <div className="form-check form-check-inline">
-              <input
-                className="form-check-input d-none"
-                type="checkbox"
-                name="male"
+              <Field
                 id="male"
+                className="form-check-input d-none"
+                component="input"
+                type="radio"
+                name="gender"
+                value="male"
               />
               <label className="form-check-label" htmlFor="male">
                 male
@@ -28,11 +33,13 @@ const SearchComponent = () => {
               <span className="pl-2">/</span>
             </div>
             <div className="form-check form-check-inline">
-              <input
-                className="form-check-input d-none"
-                type="checkbox"
+              <Field
                 id="female"
-                name="female"
+                className="form-check-input d-none"
+                component="input"
+                type="radio"
+                name="gender"
+                value="female"
               />
               <label className="form-check-label" htmlFor="female">
                 female
@@ -40,44 +47,53 @@ const SearchComponent = () => {
               <span className="pl-2">/</span>
             </div>
             <div className="form-check form-check-inline">
-              <input
+              <Field
+                id="all"
                 className="form-check-input d-none"
-                type="checkbox"
-                id="every"
-                name="every"
+                component="input"
+                type="radio"
+                name="gender"
+                value="all"
               />
-              <label className="form-check-label" htmlFor="every">
+              <label className="form-check-label" htmlFor="all">
                 not specifed
               </label>
             </div>
           </div>
-        </div>
-        <div className="form-group col-sm-5">
-          <label htmlFor="from">age from</label>
-          <input
-            type="number"
-            min="18"
-            max="40"
-            id="from"
-            className="mx-1 px-1"
-            style={{ width: "50px" }}
-            defaultValue="18"
-          />
-          <label htmlFor="to">to</label>
-          <input
-            type="number"
-            max="40"
-            id="to"
-            className="ml-1 px-1"
-            style={{ width: "50px" }}
-            defaultValue="40"
-          />
-        </div>
-        <div className="form-group d-flex align-self-baseline col-sm-3">
-          <label className="ml-sm-auto pt-2" htmlFor="work">
-            works for
-          </label>
-          <input type="text" id="work" className="mx-1 col-3 px-1" />
+          <div className="form-group col-sm-5">
+            <label htmlFor="from">age from</label>
+            <Field
+              name="ageFrom"
+              component="input"
+              type="number"
+              min="18"
+              max={ageTo}
+              id="from"
+              className="ageInput mx-1 px-1"
+            />
+            <label htmlFor="to">to</label>
+            <Field
+              name="ageTo"
+              component="input"
+              type="number"
+              min={ageFrom}
+              max="40"
+              id="to"
+              className="ageInput ml-1 px-1"
+            />
+          </div>
+          <div className="form-group d-flex align-self-baseline col-sm-3">
+            <label className="ml-sm-auto pt-1" htmlFor="work">
+              works for
+            </label>
+            <Field
+              name="company"
+              component="input"
+              type="text"
+              id="work"
+              className="workInput mx-1 col-4 col-sm-5 px-1"
+            />
+          </div>
         </div>
       </form>
     </div>

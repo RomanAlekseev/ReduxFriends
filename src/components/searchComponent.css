@@ -1,0 +1,12 @@
+.ageInput {
+  width: 50px;
+}
+.workInput {
+  height: 1.6rem;
+}
+input[type="radio"] + label {
+  color: #6c757d;
+}
+input[type="radio"]:checked + label {
+  color: #212529;
+}
