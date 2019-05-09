@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Field } from "redux-form";
+import RadioButton from "./RadioButton";
 import "./searchComponent.css";
 
 const SearchComponent = props => {
@@ -18,47 +19,9 @@ const SearchComponent = props => {
         </div>
         <div className="form-row small d-flex justify-content-between text-left text-lg-center">
           <div className="form-group text-left px-1 col-3">
-            <div className="form-check form-check-inline">
-              <Field
-                id="male"
-                className="form-check-input d-none"
-                component="input"
-                type="radio"
-                name="gender"
-                value="male"
-              />
-              <label className="form-check-label" htmlFor="male">
-                male
-              </label>
-              <span className="pl-2">/</span>
-            </div>
-            <div className="form-check form-check-inline">
-              <Field
-                id="female"
-                className="form-check-input d-none"
-                component="input"
-                type="radio"
-                name="gender"
-                value="female"
-              />
-              <label className="form-check-label" htmlFor="female">
-                female
-              </label>
-              <span className="pl-2">/</span>
-            </div>
-            <div className="form-check form-check-inline">
-              <Field
-                id="all"
-                className="form-check-input d-none"
-                component="input"
-                type="radio"
-                name="gender"
-                value="all"
-              />
-              <label className="form-check-label" htmlFor="all">
-                not specifed
-              </label>
-            </div>
+            <RadioButton gender="male" />
+            <RadioButton gender="female" />
+            <RadioButton gender="all" />
           </div>
           <div className="form-group col-sm-5">
             <label htmlFor="from">age from</label>
