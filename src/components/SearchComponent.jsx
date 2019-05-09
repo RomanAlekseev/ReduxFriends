@@ -55,6 +55,7 @@ const SearchComponent = props => {
               type="text"
               id="work"
               className="workInput mx-1 col-4 col-sm-5 px-1"
+              placeholder="Company Name"
             />
           </div>
         </div>
