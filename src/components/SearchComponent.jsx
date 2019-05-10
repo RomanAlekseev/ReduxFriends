@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Field } from "redux-form";
 import RadioButton from "./RadioButton";
-import "./searchComponent.css";
+import "../css/searchComponent.css";
 
 const SearchComponent = props => {
   const { ageFrom, ageTo } = props;

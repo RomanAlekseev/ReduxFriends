@@ -1,0 +1,17 @@
+.item-message {
+  margin-top: 30vh;
+}
+.container {
+  position: relative;
+}
+
+h2 + nav {
+  width: 100%;
+  position: absolute;
+  top: 0.3rem;
+  left: -0.13rem;
+}
+
+.display {
+  min-height: 65vh;
+}
