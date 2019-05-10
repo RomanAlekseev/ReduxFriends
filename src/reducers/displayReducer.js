@@ -1,4 +1,4 @@
-import { RECEIVE_USERS } from "../constants/actionTypes";
+import { RECEIVE_USERS, FETCH_ERROR } from "../constants/actionTypes";
 
 const initialState = {
   users: [],
@@ -14,6 +14,12 @@ export default function displayReducer(state = initialState, action) {
       return {
         ...state,
         users: action.payload,
+        isLoading: false
+      };
+    case FETCH_ERROR:
+      return {
+        ...state,
+        fetchError: true,
         isLoading: false
       };
     default:

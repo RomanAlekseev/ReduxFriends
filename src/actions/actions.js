@@ -1,8 +1,14 @@
-import { RECEIVE_USERS } from "../constants/actionTypes";
+import { RECEIVE_USERS, FETCH_ERROR } from "../constants/actionTypes";
 
-export function receiveUsers(users) {
+export const receiveUsers = users => {
   return {
     type: RECEIVE_USERS,
     payload: users
   };
-}
+};
+
+export const fetch_error = () => {
+  return {
+    type: FETCH_ERROR
+  };
+};
