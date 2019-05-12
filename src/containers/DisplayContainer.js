@@ -9,7 +9,7 @@ function mapStateToProps(state) {
     isLoading: state.displayReducer.isLoading,
     fetchError: state.displayReducer.fetchError,
     personPerPage: state.displayReducer.personPerPage,
-    cuurrentPage: state.displayReducer.cuurrentPage
+    currentPage: state.paginationReducer.currentPage
   };
 }
 

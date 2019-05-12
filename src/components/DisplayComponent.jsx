@@ -10,9 +10,6 @@ import {
 import "../css/displayComponent.css";
 
 class DisplayComponent extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   rootFilter = arr => {
     const { ageFrom, ageTo, gender, name, company } = this.props;
     return compose(

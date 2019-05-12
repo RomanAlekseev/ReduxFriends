@@ -5,6 +5,7 @@ import { store } from "./store/store";
 
 import SearchContainer from "./containers/SearchContainer";
 import DisplayContainer from "./containers/DisplayContainer";
+import PaginationContainer from "./containers/PaginationContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./styles.css";
 
@@ -13,6 +14,7 @@ function App() {
     <Provider store={store}>
       <SearchContainer />
       <DisplayContainer />
+      <PaginationContainer />
     </Provider>
   );
 }
