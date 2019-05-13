@@ -2,7 +2,8 @@ import {
   INCREMENT,
   DECREMENT,
   CHANGE_CURRENT_PAGE,
-  TO_THE_FIRST
+  TO_THE_FIRST,
+  TO_THE_LAST
 } from "../constants/actionTypes";
 
 const initialState = {
@@ -30,6 +31,11 @@ export default function paginationReducer(state = initialState, action) {
       return {
         ...state,
         currentPage: 1
+      };
+    case TO_THE_LAST:
+      return {
+        ...state,
+        currentPage: action.payload
       };
     default:
       return state;

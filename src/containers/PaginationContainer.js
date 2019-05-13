@@ -4,12 +4,16 @@ import {
   increment,
   decrement,
   changeCurrentPage,
-  toTheFirst
+  toTheFirst,
+  toTheLast
 } from "../actions/actions";
 
 function mapStateToProps(state) {
   return {
-    currentPage: state.paginationReducer.currentPage
+    currentPage: state.paginationReducer.currentPage,
+    personPerPage: state.displayReducer.personPerPage,
+    users: state.displayReducer.users,
+    lastPage: state.displayReducer.lastPage
   };
 }
 
@@ -18,7 +22,8 @@ function mapDispatchToProps(dispatch) {
     increment: () => dispatch(increment()),
     decrement: () => dispatch(decrement()),
     changeCurrentPage: n => dispatch(changeCurrentPage(n)),
-    toTheFirst: () => dispatch(toTheFirst())
+    toTheFirst: () => dispatch(toTheFirst()),
+    toTheLast: n => dispatch(toTheLast(n))
   };
 }
 

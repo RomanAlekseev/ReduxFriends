@@ -5,14 +5,20 @@ import {
   filterAge,
   filterGender,
   filterName,
-  filterWorkFor
+  filterWorkFor,
+  currentPageResult
 } from "../utilits/utilits";
 import "../css/displayComponent.css";
 
 class DisplayComponent extends React.Component {
+  lastPage = users => {
+    const page = users.length / this.props.personPerPage;
+    return Math.ceil(page);
+  };
   rootFilter = arr => {
+    this.props.getLastPage(this.lastPage);
     const { ageFrom, ageTo, gender, name, company } = this.props;
-    return compose(
+    const usersArr = compose(
       [
         filterWorkFor(company),
         filterAge(ageFrom, ageTo),
@@ -21,6 +27,8 @@ class DisplayComponent extends React.Component {
       ],
       arr
     );
+    this.props.getLastPage(this.lastPage(usersArr));
+    return usersArr;
   };
   componentDidMount() {
     this.props.fetchUsers();
@@ -34,11 +42,13 @@ class DisplayComponent extends React.Component {
           </h2>
           <small className="text-muted">{267} users was find:</small>
           <ul className="list-unstyled person text-left mt-4  mb-3 d-flex flex-wrap pl-0">
-            {this.rootFilter(this.props.users)
-              .slice(0, 24)
-              .map(item => (
-                <PersonItem item={item} key={item.id} />
-              ))}
+            {currentPageResult(
+              this.rootFilter(this.props.users),
+              this.props.currentPage,
+              this.props.personPerPage
+            ).map(item => (
+              <PersonItem item={item} key={item.id} />
+            ))}
           </ul>
         </div>
       </React.Fragment>

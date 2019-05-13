@@ -4,7 +4,9 @@ import {
   INCREMENT,
   DECREMENT,
   CHANGE_CURRENT_PAGE,
-  TO_THE_FIRST
+  TO_THE_FIRST,
+  GET_LAST_PAGE,
+  TO_THE_LAST
 } from "../constants/actionTypes";
 
 export const receiveUsers = users => {
@@ -39,8 +41,22 @@ export const changeCurrentPage = n => {
   };
 };
 
-export const toTheFirst = n => {
+export const toTheFirst = () => {
   return {
     type: TO_THE_FIRST
+  };
+};
+
+export const toTheLast = n => {
+  return {
+    type: TO_THE_LAST,
+    payload: n
+  };
+};
+
+export const getLastPage = n => {
+  return {
+    type: GET_LAST_PAGE,
+    payload: n
   };
 };
