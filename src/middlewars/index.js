@@ -12,7 +12,12 @@ export function fetchUsers() {
         dispatch(fetch_error());
       }
     };
-
     return request();
   };
 }
+
+export const currentPageResult = (users, pageNumber, itemsPerPage = 24) => {
+  let i = pageNumber <= 1 ? 0 : itemsPerPage * pageNumber - itemsPerPage;
+  users = users.slice(i, itemsPerPage * pageNumber);
+  return users;
+};

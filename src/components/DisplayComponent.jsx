@@ -5,9 +5,9 @@ import {
   filterAge,
   filterGender,
   filterName,
-  filterWorkFor,
-  currentPageResult
+  filterWorkFor
 } from "../utilits/utilits";
+import { currentPageResult } from "../middlewars/index";
 import "../css/displayComponent.css";
 
 class DisplayComponent extends React.Component {
@@ -33,11 +33,19 @@ class DisplayComponent extends React.Component {
   componentDidMount() {
     this.props.fetchUsers();
   }
+  shouldComponentUpdate(nextProps) {
+    return (
+      this.rootFilter(this.props.users) !== this.rootFilter(nextProps.users)
+    );
+  }
   render() {
     return (
       <React.Fragment>
         <div className="display container">
-          <h2 className="title font-weight-bold text-left item-title">
+          <h2
+            className="title font-weight-bold text-left item-title"
+            onClick={this.props.toTheFirst}
+          >
             Friends
           </h2>
           <small className="text-muted">{267} users was find:</small>

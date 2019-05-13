@@ -1,8 +1,17 @@
 import SearchComponent from "../components/SearchComponent";
 import { reduxForm, formValueSelector } from "redux-form";
 import { connect } from "react-redux";
+import { toTheFirst } from "../actions/actions";
 
-let SearchContainer = reduxForm({
+function mapDispatchToProps(dispatch) {
+  return {
+    toTheFirst: () => dispatch(toTheFirst())
+  };
+}
+
+let SearchContainer = connect(mapDispatchToProps)(SearchComponent);
+
+SearchContainer = reduxForm({
   form: "searchBar",
   initialValues: {
     gender: "all",

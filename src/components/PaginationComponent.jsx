@@ -2,6 +2,13 @@ import React from "react";
 import "../css/paginationComponent.css";
 
 const PaginationComponent = props => {
+  const scrollToTop = () => {
+    const c = document.documentElement.scrollTop || document.body.scrollTop;
+    if (c > 0) {
+      window.requestAnimationFrame(scrollToTop);
+      window.scrollTo(0, c - c / 8);
+    }
+  };
   const getPageNumbers = (currentPage, pageEnd = 8) => {
     let arr = [];
     let pageStart = 1;
@@ -14,13 +21,18 @@ const PaginationComponent = props => {
       arr.push(pageStart);
     }
     if (props.currentPage > props.lastPage - 8) {
-      const arrNew = [...arr.slice()];
-      console.log(arrNew);
+      let i = props.lastPage;
+      let newArr = [];
+      while (i > props.lastPage - 8) {
+        newArr.unshift(i);
+        i--;
+      }
+      arr = newArr;
     }
     return arr;
   };
-  return (
-    <div className="pagination">
+  return !props.top && props.currentPage === props.lastPage ? null : (
+    <div className="pagination" onClick={props.top ? null : scrollToTop}>
       <button
         className="pagination-control"
         disabled={props.currentPage < 9}

@@ -13,6 +13,7 @@ function App() {
   return (
     <Provider store={store}>
       <SearchContainer />
+      <PaginationContainer top />
       <DisplayContainer />
       <PaginationContainer />
     </Provider>

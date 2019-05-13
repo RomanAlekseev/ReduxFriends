@@ -10,3 +10,5 @@ export const TO_THE_FIRST = "TO_THE_FIRST";
 export const TO_THE_LAST = "TO_THE_LAST";
 
 export const GET_LAST_PAGE = "GET_LAST_PAGE";
+
+export const FILTRED = "FILTRED";

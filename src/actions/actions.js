@@ -6,7 +6,8 @@ import {
   CHANGE_CURRENT_PAGE,
   TO_THE_FIRST,
   GET_LAST_PAGE,
-  TO_THE_LAST
+  TO_THE_LAST,
+  FILTRED
 } from "../constants/actionTypes";
 
 export const receiveUsers = users => {
@@ -58,5 +59,12 @@ export const getLastPage = n => {
   return {
     type: GET_LAST_PAGE,
     payload: n
+  };
+};
+
+export const filtred = users => {
+  return {
+    type: FILTRED,
+    payload: users
   };
 };

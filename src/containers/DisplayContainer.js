@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import DisplayComponent from "../components/DisplayComponent";
-import { getLastPage } from "../actions/actions";
+import { getLastPage, toTheFirst } from "../actions/actions";
 import { fetchUsers } from "../middlewars/index";
 import { formValueSelector } from "redux-form";
 
@@ -8,7 +8,6 @@ function mapStateToProps(state) {
   return {
     users: state.displayReducer.users,
     isLoading: state.displayReducer.isLoading,
-    fetchError: state.displayReducer.fetchError,
     personPerPage: state.displayReducer.personPerPage,
     currentPage: state.paginationReducer.currentPage
   };
@@ -17,9 +16,11 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     fetchUsers: () => dispatch(fetchUsers()),
-    getLastPage: n => dispatch(getLastPage(n))
+    getLastPage: n => dispatch(getLastPage(n)),
+    toTheFirst: () => dispatch(toTheFirst())
   };
 }
+
 let DisplayContainer = connect(
   mapStateToProps,
   mapDispatchToProps
