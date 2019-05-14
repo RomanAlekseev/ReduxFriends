@@ -3,3 +3,8 @@ img.spiner {
   padding-top: 5.5rem;
   margin: auto;
 }
+@media screen and (max-width: 1000px) {
+  img.spiner {
+    padding-top: 0;
+  }
+}
