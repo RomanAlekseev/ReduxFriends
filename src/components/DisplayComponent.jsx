@@ -44,14 +44,20 @@ class DisplayComponent extends React.Component {
           <h2 className="title font-weight-bold text-left item-title">
             Friends
           </h2>
-          <small className="text-muted">
-            {this.resultLength()} users was find:
-          </small>
-          <ul className="list-unstyled person text-left mt-4  mb-3 d-flex flex-wrap pl-0">
-            {this.rootFilter(this.props.users).map(item => (
-              <PersonItem item={item} key={item.id} />
-            ))}
-          </ul>
+          {this.props.isLoading ? (
+            <img src={require("../img/giphy.gif")} alt="spiner" />
+          ) : (
+            <React.Fragment>
+              <small className="text-muted">
+                {this.resultLength()} users was find:
+              </small>
+              <ul className="list-unstyled person text-left mt-4  mb-3 d-flex flex-wrap pl-0">
+                {this.rootFilter(this.props.users).map(item => (
+                  <PersonItem item={item} key={item.id} />
+                ))}
+              </ul>
+            </React.Fragment>
+          )}
         </div>
       </React.Fragment>
     );
