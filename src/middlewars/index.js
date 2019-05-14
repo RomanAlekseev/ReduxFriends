@@ -16,12 +16,6 @@ export function fetchUsers() {
   };
 }
 
-export const currentPageResult = (users, pageNumber, itemsPerPage = 24) => {
-  let i = pageNumber <= 1 ? 0 : itemsPerPage * pageNumber - itemsPerPage;
-  users = users.slice(i, itemsPerPage * pageNumber);
-  return users;
-};
-
 export const resetPage = store => next => action => {
   const prevLastPage = store.getState().displayReducer.lastPage;
   const currentPage = store.getState().paginationReducer.currentPage;
@@ -32,13 +26,6 @@ export const resetPage = store => next => action => {
   ) {
     console.log(prevLastPage);
     store.dispatch(toTheFirst());
-  }
-  let result = next(action);
-  return result;
-};
-
-export const rootFilter = store => next => action => {
-  if (store.getState().form.searchBar) {
   }
   let result = next(action);
   return result;

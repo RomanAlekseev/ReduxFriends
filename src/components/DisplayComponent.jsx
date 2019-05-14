@@ -6,12 +6,11 @@ import {
   filterAge,
   filterGender,
   filterName,
-  filterWorkFor
+  filterWorkFor,
+  currentPageResult
 } from "../utilits/utilits";
-import { currentPageResult } from "../middlewars/index";
 import "../css/displayComponent.css";
-
-class DisplayComponent extends React.Component {
+class DisplayComponent extends React.PureComponent {
   lastPage = users => {
     const page = users.length / this.props.personPerPage;
     return Math.ceil(page);

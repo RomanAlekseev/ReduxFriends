@@ -6,7 +6,7 @@ import RadioButton from "./RadioButton";
 
 import "../css/searchComponent.css";
 
-const SearchComponent = props => {
+const SearchComponent = React.memo(props => {
   const { ageFrom, ageTo } = props;
 
   return (
@@ -75,6 +75,6 @@ const SearchComponent = props => {
       </form>
     </div>
   );
-};
+});
 
 export default SearchComponent;

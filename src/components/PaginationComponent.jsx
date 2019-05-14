@@ -1,7 +1,7 @@
 import React from "react";
 import "../css/paginationComponent.css";
 
-const PaginationComponent = props => {
+const PaginationComponent = React.memo(props => {
   const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
     if (c > 0) {
@@ -84,6 +84,6 @@ const PaginationComponent = props => {
       </div>
     </div>
   );
-};
+});
 
 export default PaginationComponent;
