@@ -15,3 +15,15 @@ h2 + nav {
 .display {
   min-height: 65vh;
 }
+@media screen and (max-width: 1000px) {
+  .pagination-container {
+    position: static;
+  }
+  ul.pagination-list {
+    margin-bottom: 2rem;
+  }
+  .pagination-item {
+    width: 2.1rem;
+    margin-right: 5px;
+  }
+}

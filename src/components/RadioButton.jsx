@@ -6,7 +6,7 @@ const RadioButton = props => {
     <div className="form-check form-check-inline">
       <Field
         id={props.gender}
-        className="form-check-input d-none"
+        className="form-check-input d-none col-12"
         component="input"
         type="radio"
         name="gender"

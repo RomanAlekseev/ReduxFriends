@@ -24,7 +24,12 @@ export const currentPageResult = (users, pageNumber, itemsPerPage = 24) => {
 
 export const resetPage = store => next => action => {
   const prevLastPage = store.getState().displayReducer.lastPage;
-  if (action.type === "GET_LAST_PAGE" && action.payload !== prevLastPage) {
+  const currentPage = store.getState().paginationReducer.currentPage;
+  if (
+    action.type === "GET_LAST_PAGE" &&
+    action.payload !== prevLastPage &&
+    currentPage !== 1
+  ) {
     console.log(prevLastPage);
     store.dispatch(toTheFirst());
   }
