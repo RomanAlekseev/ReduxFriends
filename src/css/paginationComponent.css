@@ -1,11 +1,13 @@
+.pagination-container {
+  position: absolute;
+  width: 100%;
+  z-index: 99;
+}
 .pagination {
   display: flex;
   justify-content: center;
   align-items: baseline;
-  position: absolute;
-  left: 35%;
   margin-top: 0.5rem;
-  z-index: 99;
 }
 .pagination-list {
   list-style-type: none;

@@ -9,7 +9,8 @@ function mapStateToProps(state) {
     users: state.displayReducer.users,
     isLoading: state.displayReducer.isLoading,
     personPerPage: state.displayReducer.personPerPage,
-    currentPage: state.paginationReducer.currentPage
+    currentPage: state.paginationReducer.currentPage,
+    lastPage: state.displayReducer.lastPage
   };
 }
 

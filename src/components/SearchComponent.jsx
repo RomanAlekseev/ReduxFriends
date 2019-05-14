@@ -1,10 +1,14 @@
 import * as React from "react";
+
 import { Field } from "redux-form";
+
 import RadioButton from "./RadioButton";
+
 import "../css/searchComponent.css";
 
 const SearchComponent = props => {
   const { ageFrom, ageTo } = props;
+
   return (
     <div className="container">
       <form className="mb-2">
@@ -17,14 +21,19 @@ const SearchComponent = props => {
             placeholder="Search"
           />
         </div>
+
         <div className="form-row small d-flex justify-content-between text-left text-lg-center">
           <div className="form-group text-left px-1 col-3">
             <RadioButton gender="male" />
+
             <RadioButton gender="female" />
+
             <RadioButton gender="all" />
           </div>
+
           <div className="form-group col-sm-5">
             <label htmlFor="from">age from</label>
+
             <Field
               name="ageFrom"
               component="input"
@@ -34,7 +43,9 @@ const SearchComponent = props => {
               id="from"
               className="ageInput mx-1 px-1"
             />
+
             <label htmlFor="to">to</label>
+
             <Field
               name="ageTo"
               component="input"
@@ -45,10 +56,12 @@ const SearchComponent = props => {
               className="ageInput ml-1 px-1"
             />
           </div>
+
           <div className="form-group d-flex align-self-baseline col-sm-3">
             <label className="ml-sm-auto pt-1" htmlFor="work">
               works for
             </label>
+
             <Field
               name="company"
               component="input"

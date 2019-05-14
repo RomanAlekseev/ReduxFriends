@@ -1,13 +1,11 @@
 import {
   RECEIVE_USERS,
   FETCH_ERROR,
-  GET_LAST_PAGE,
-  FILTRED
+  GET_LAST_PAGE
 } from "../constants/actionTypes";
 
 const initialState = {
   users: [],
-  filterResult: [],
   isLoading: true,
   fetchError: false,
   personPerPage: 24,
@@ -32,11 +30,6 @@ export default function displayReducer(state = initialState, action) {
       return {
         ...state,
         lastPage: action.payload
-      };
-    case FILTRED:
-      return {
-        ...state,
-        filterResult: action.payload
       };
     default:
       return state;

@@ -1,4 +1,4 @@
-import { receiveUsers, fetch_error } from "../actions/actions";
+import { receiveUsers, fetch_error, toTheFirst } from "../actions/actions";
 
 export function fetchUsers() {
   return dispatch => {
@@ -20,4 +20,14 @@ export const currentPageResult = (users, pageNumber, itemsPerPage = 24) => {
   let i = pageNumber <= 1 ? 0 : itemsPerPage * pageNumber - itemsPerPage;
   users = users.slice(i, itemsPerPage * pageNumber);
   return users;
+};
+
+export const resetPage = store => next => action => {
+  const prevLastPage = store.getState().displayReducer.lastPage;
+  if (action.type === "GET_LAST_PAGE" && action.payload !== prevLastPage) {
+    console.log(prevLastPage);
+    store.dispatch(toTheFirst());
+  }
+  let result = next(action);
+  return result;
 };
