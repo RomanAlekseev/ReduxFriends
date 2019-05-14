@@ -36,3 +36,10 @@ export const resetPage = store => next => action => {
   let result = next(action);
   return result;
 };
+
+export const rootFilter = store => next => action => {
+  if (store.getState().form.searchBar) {
+  }
+  let result = next(action);
+  return result;
+};

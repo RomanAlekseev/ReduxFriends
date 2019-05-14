@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import DisplayComponent from "../components/DisplayComponent";
-import { getLastPage, toTheFirst } from "../actions/actions";
+import { getLastPage } from "../actions/actions";
 import { fetchUsers } from "../middlewars/index";
 import { formValueSelector } from "redux-form";
 
@@ -17,8 +17,7 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch) {
   return {
     fetchUsers: () => dispatch(fetchUsers()),
-    getLastPage: n => dispatch(getLastPage(n)),
-    toTheFirst: () => dispatch(toTheFirst())
+    getLastPage: n => dispatch(getLastPage(n))
   };
 }
 
