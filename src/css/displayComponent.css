@@ -15,8 +15,3 @@ h2 + nav {
 .display {
   min-height: 65vh;
 }
-img {
-  margin: auto;
-  margin-top: 5%;
-  display: block;
-}

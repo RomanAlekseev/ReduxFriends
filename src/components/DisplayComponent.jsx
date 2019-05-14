@@ -1,5 +1,6 @@
 import * as React from "react";
 import PersonItem from "./PersonItem";
+import Spiner from "./Spiner";
 import {
   compose,
   filterAge,
@@ -45,7 +46,7 @@ class DisplayComponent extends React.Component {
             Friends
           </h2>
           {this.props.isLoading ? (
-            <img src={require("../img/giphy.gif")} alt="spiner" />
+            <Spiner />
           ) : (
             <React.Fragment>
               <small className="text-muted">
